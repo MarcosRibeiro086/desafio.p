@@ -1,23 +1,38 @@
 <?php
+
 require_once __DIR__ . '/../models/associado.php';
 
 class associadoController {
-    private $db;
-    private $associado;
 
+    private $db;
+    private $model;
+
+    // Construtor recebe a conexão com o banco
     public function __construct($db) {
         $this->db = $db;
-        $this->associado = new Associado($db);
+        $this->model = new Associado($db);
     }
 
-    public function cadastrarAssociado($nome, $email, $cpf, $data_filiacao) {
-        // Verificar se o CPF já está cadastrado
-        if ($this->associado->verificarCpfExistente($cpf)) {
-            return false; // CPF já existe, não pode cadastrar
+    // Método para listar todos os associados
+    public function listarAssociados() {
+        try {
+            $associados = $this->model->listar();
+            return $associados;
+        } catch (Exception $e) {
+            echo "Erro ao listar associados: " . $e->getMessage();
+            return [];
         }
+    }
 
-        // Cadastrar o associado caso o CPF não exista
-        return $this->associado->cadastrar($nome, $email, $cpf, $data_filiacao);
+    // Método para cadastrar um novo associado
+    public function cadastrarAssociado($nome, $email, $cpf, $data_filiacao) {
+        try {
+            $resultado = $this->model->cadastrar($nome, $email, $cpf, $data_filiacao);
+            return $resultado;
+        } catch (Exception $e) {
+            echo "Erro ao cadastrar associado: " . $e->getMessage();
+            return false;
+        }
     }
 }
 

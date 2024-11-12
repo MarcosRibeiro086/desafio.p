@@ -1,5 +1,7 @@
 <?php
-require_once __DIR__ . '/../../src/controllers/anuidadeController.php';
+require_once __DIR__ . '/../../../src/controllers/AnuidadeController.php';
+require_once __DIR__ . '/../../../config/connection.php';
+
 
 $database = new connection();
 $db = $database->getConnection();

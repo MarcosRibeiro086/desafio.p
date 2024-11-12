@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../../src/controllers/cobrancaController.php';
-require_once __DIR__ . '/../../src/controllers/associadoController.php';
-require_once __DIR__ . '/../../src/controllers/anuidadeController.php';
+require_once __DIR__ . '/..//../../src/controllers/cobrancaController.php';
+require_once __DIR__ . '/..//../../src/controllers/associadoController.php';
+require_once __DIR__ . '/..//../../src/controllers/anuidadeController.php';
 
 $database = new connection();
 $db = $database->getConnection();

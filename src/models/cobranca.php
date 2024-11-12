@@ -16,15 +16,27 @@ class cobranca {
         return $stmt->execute([$associado_id, $anuidade_id]);
     }
 
-    public function listar() {
-        $query = "SELECT c.id, a.nome AS associado_nome, an.ano, an.valor, c.pago
-                  FROM cobrancas c
-                  JOIN associados a ON c.associado_id = a.id
-                  JOIN anuidades an ON c.anuidade_id = an.id";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+// src/models/cobranca.php
+public function listar()
+{
+    $sql = "SELECT 
+                c.id,
+                a.nome AS associado, -- Adicionando alias para nome do associado
+                an.ano AS anuidade_ano,
+                c.valor,
+                c.pago AS status
+            FROM 
+                cobrancas c
+            JOIN 
+                associados a ON c.associado_id = a.id
+            JOIN 
+                anuidades an ON c.anuidade_id = an.id";
+    
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
     public function pagar($id) {
         $query = "UPDATE " . $this->table_name . " SET pago = 1 WHERE id = ?";

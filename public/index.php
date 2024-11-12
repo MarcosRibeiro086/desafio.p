@@ -38,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["action"])) {
     <h1>Bem-vindo ao Gerenciador de Associados</h1>
 
     <ul>
-        <li><a href="/desafio.p/views/associados/associado_form.php">Cadastrar Associado</a></li>
-        <li><a href="/desafio.p/views/associados/listarAssociados.php">Listar Associados</a></li>
-        <li><a href="/desafio.p/views/anuidades/cadastrar.php">Cadastrar Anuidade</a></li>
-        <li><a href="/desafio.p/views/anuidades/listarAnuidades.php">Listar Anuidades</a></li>
-        <li><a href="src\views\cobrancas\cadastrarCobrancas.php">Cadastrar Cobrança</a></li>
-        <li><a href="src\views\cobrancas\listarCobrancas.php">Listar Cobranças</a></li>
+        <li><a href="/desafio.p/src/views/associados/associado_form.php">Cadastrar Associado</a></li>
+        <li><a href="/desafio.p/src/views/associados/listarAssociados.php">Listar Associados</a></li>
+        <li><a href="/desafio.p/src/views/anuidades/cadastrar.php">Cadastrar Anuidade</a></li>
+        <li><a href="/desafio.p/src/views/anuidades/listarAnuidades.php">Listar Anuidades</a></li>
+        <li><a href="/desafio.p/src/views/cobrancas/cadastrarCobrancas.php">Cadastrar Cobrança</a></li>
+        <li><a href="/desafio.p/src/views/cobrancas/listarCobrancas.php">Listar Cobranças</a></li>
     </ul>
 
     <h2>Cadastrar Associado</h2>
